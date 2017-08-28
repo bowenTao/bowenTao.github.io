@@ -112,19 +112,19 @@
 
 
 
-<meta name="description" content="jsonp的缺陷1)只能进行GET请求2)缺乏有效的错误捕获机制。因此在XMLHttpRequest v2标准下，提出了CORS(Cross Origin Resourse-Sharing)的模型，试图保证跨域请求的安全性。 CORS(跨域资源共享)CORS（Cross-Origin Resource Sharing）是W3C在05年提出的跨域资源请求机制，它要求当前域（常规为存放资源的服务器）在">
+<meta name="description" content="jsonp的缺陷1)只能进行GET请求2)缺乏有效的错误捕获机制。因此在XMLHttpRequest v2标准下，提出了CORS(Cross Origin Resourse-Sharing)的模型，试图保证跨域请求的安全性。">
 <meta name="keywords" content="跨域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CORS (跨域资源共享)">
 <meta property="og:url" content="http://yoursite.com/2017/08/27/cors跨域资源共享/index.html">
 <meta property="og:site_name" content="Spade K的小屋">
-<meta property="og:description" content="jsonp的缺陷1)只能进行GET请求2)缺乏有效的错误捕获机制。因此在XMLHttpRequest v2标准下，提出了CORS(Cross Origin Resourse-Sharing)的模型，试图保证跨域请求的安全性。 CORS(跨域资源共享)CORS（Cross-Origin Resource Sharing）是W3C在05年提出的跨域资源请求机制，它要求当前域（常规为存放资源的服务器）在">
+<meta property="og:description" content="jsonp的缺陷1)只能进行GET请求2)缺乏有效的错误捕获机制。因此在XMLHttpRequest v2标准下，提出了CORS(Cross Origin Resourse-Sharing)的模型，试图保证跨域请求的安全性。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/imgs/cors.png">
-<meta property="og:updated_time" content="2017-08-28T06:39:44.197Z">
+<meta property="og:updated_time" content="2017-08-28T06:45:41.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CORS (跨域资源共享)">
-<meta name="twitter:description" content="jsonp的缺陷1)只能进行GET请求2)缺乏有效的错误捕获机制。因此在XMLHttpRequest v2标准下，提出了CORS(Cross Origin Resourse-Sharing)的模型，试图保证跨域请求的安全性。 CORS(跨域资源共享)CORS（Cross-Origin Resource Sharing）是W3C在05年提出的跨域资源请求机制，它要求当前域（常规为存放资源的服务器）在">
+<meta name="twitter:description" content="jsonp的缺陷1)只能进行GET请求2)缺乏有效的错误捕获机制。因此在XMLHttpRequest v2标准下，提出了CORS(Cross Origin Resourse-Sharing)的模型，试图保证跨域请求的安全性。">
 <meta name="twitter:image" content="http://yoursite.com/imgs/cors.png">
 
 
@@ -410,8 +410,8 @@
       
 
       
-        <h3 id="jsonp的缺陷"><a href="#jsonp的缺陷" class="headerlink" title="jsonp的缺陷"></a>jsonp的缺陷</h3><p>1)只能进行GET请求<br>2)缺乏有效的错误捕获机制。因此在XMLHttpRequest v2标准下，提出了CORS(Cross Origin Resourse-Sharing)的模型，试图保证跨域请求的安全性。</p>
-<h3 id="CORS-跨域资源共享"><a href="#CORS-跨域资源共享" class="headerlink" title="CORS(跨域资源共享)"></a>CORS(跨域资源共享)</h3><p>CORS（Cross-Origin Resource Sharing）是W3C在05年提出的跨域资源请求机制，它要求当前域（常规为存放资源的服务器）在响应报头添加Access-Control-Allow-Origin标签，从而允许指定域的站点访问当前域上的资源，客户端的实现跟常规的请求没啥出入，不过CORS默认只支持GET/POST这两种http请求类型，如果要开启PUT/DELETE之类的方式，需要在服务端在添加一个”Access-Control-Allow-Methods”报头标签(ie6,7不行！)<br><a id="more"></a></p>
+        <h3 id="jsonp的缺陷"><a href="#jsonp的缺陷" class="headerlink" title="jsonp的缺陷"></a>jsonp的缺陷</h3><p>1)只能进行GET请求<br>2)缺乏有效的错误捕获机制。因此在XMLHttpRequest v2标准下，提出了CORS(Cross Origin Resourse-Sharing)的模型，试图保证跨域请求的安全性。<br><a id="more"></a> </p>
+<h3 id="CORS-跨域资源共享"><a href="#CORS-跨域资源共享" class="headerlink" title="CORS(跨域资源共享)"></a>CORS(跨域资源共享)</h3><p>CORS（Cross-Origin Resource Sharing）是W3C在05年提出的跨域资源请求机制，它要求当前域（常规为存放资源的服务器）在响应报头添加Access-Control-Allow-Origin标签，从而允许指定域的站点访问当前域上的资源。客户端的实现跟常规的请求没啥出入，不过CORS默认只支持GET/POST这两种http请求类型，如果要开启PUT/DELETE之类的方式，需要在服务端在添加一个”Access-Control-Allow-Methods”报头标签(ie6,7不行！)</p>
 <h4 id="CORS兼容性"><a href="#CORS兼容性" class="headerlink" title="CORS兼容性"></a>CORS兼容性</h4><p><img src="/imgs/cors.png" width="700" height="300"><br>IE使用XDomainRequest，实现了cors的部分规范，请求只支持GET和POST，协议只支持http和https，XDomainRequest()只接受两个参数method和url，所有请求都是异步执行的的，不能创建同步请求，触发load事件，访问的数据保存在responseText中。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xdr = <span class="keyword">new</span> XDomainRequest();</div><div class="line">		xdr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(xdr.responseText);</div><div class="line">		&#125;</div><div class="line">		xdr.open(<span class="string">'GET'</span>, <span class="string">'www.baidu.com'</span>);</div><div class="line">		xdr.send(<span class="literal">null</span>);</div></pre></td></tr></table></figure></p>
 <p>其他浏览器使用XMLHttpRequest level2</p>
 <h4 id="CORS实现跨域"><a href="#CORS实现跨域" class="headerlink" title="CORS实现跨域"></a>CORS实现跨域</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">creatCORS</span>(<span class="params">method, url, flag</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> cors = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">	<span class="keyword">if</span> (<span class="string">'withCredentials'</span> <span class="keyword">in</span> cors) &#123;</div><div class="line">            <span class="comment">//XMLHttpRequest level2 独有的属性				</span></div><div class="line">            <span class="comment">//标准的CORS请求，默认情况下是不会发送或者设置cookie值的。为了再请求时，附带cookies，我们需要设置XMLHttpRequest的withCredentials属性为true</span></div><div class="line">		cors.open(method, url, flag);</div><div class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> XDomainRequest != <span class="string">'undefined'</span>) &#123;</div><div class="line">          <span class="comment">//兼容ie8+</span></div><div class="line">		cors = <span class="keyword">new</span> XDomainRequest();</div><div class="line">		cors.open(method, url);</div><div class="line">	&#125;<span class="keyword">else</span> &#123;</div><div class="line">		cors = <span class="literal">null</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> cors;</div><div class="line">&#125;</div><div class="line">      <span class="comment">//创建cors请求</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeCorsRequest</span>(<span class="params">method, url, flag, callBack</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> cors = creatCORS(method, url, flag);</div><div class="line">	<span class="keyword">if</span> (!cors) &#123;</div><div class="line">		alert(<span class="string">'CORS is not supported'</span>);</div><div class="line">	&#125;</div><div class="line">	cors.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		callBack(cors.responseText);</div><div class="line">	&#125;</div><div class="line">	cors.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'CORS error!'</span>);</div><div class="line">	&#125;</div><div class="line">	cors.send();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -454,6 +454,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/28/七夕/" rel="prev" title="情人节快乐。">
+                情人节快乐。 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -530,7 +534,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
