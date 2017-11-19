@@ -6,7 +6,7 @@
       <title><![CDATA[For my first love]]></title>
       <url>/2017/11/19/my-lover/</url>
       <content type="html"><![CDATA[<blockquote>
-<p>很久没有更新博客了。2017年11月19日。今天是一个值得纪念的日子。就在今天凌晨，我结束了为期21年的单身狗的日子！日子过得很快，遇到一个人更是不容易。作为初恋我会倍加珍惜。。。<br>终于等到你，周禹含小朋友！今后的日子请多多指教！<br>特别喜欢一句话：坚持不容易，喜欢就不难。<br>嗯。。。 比如我喜欢你 :) 傻然然<br>嘿嘿</p>
+<p>&emsp;&emsp;很久没有更新博客了。2017年11月19日。今天是一个值得纪念的日子。就在今天凌晨，我结束了为期21年的单身狗的日子！日子过得很快，遇到一个人更是不容易。作为初恋我会倍加珍惜。。。<br>&emsp;&emsp;终于等到你，周禹含小朋友！今后的日子请多多指教！<br>&emsp;&emsp;特别喜欢一句话：坚持不容易，喜欢就不难。<br>&emsp;&emsp;嗯。。。 比如我喜欢你 :) 傻然然</p>
 </blockquote>
 ]]></content>
       
@@ -17,41 +17,20 @@
       <title><![CDATA[css的权重问题]]></title>
       <url>/2017/09/15/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3css/</url>
       <content type="html"><![CDATA[<p>最近这些日子一直忙着找实习，前两天滴滴面试官问道css权重问题，后来发现跟之前理解的还是有些区别，在这里简单总结一下。</p>
-<p>###css样式的优先级</p>
-<pre><code>!important &gt; 行间样式 &gt; id选择器 &gt; class选择器 &gt; 标签选择器 &gt; 通配符（*）
-</code></pre><p>###css的权重问题</p>
-<pre><code>当接触到复杂的选择器时我们就不能简单用优先级来进行判断了，这个时候就需要引入各种选择器的权重值来进行计算。
-* !important:                           无穷大
-* 行间样式:                               1000
-* id选择器:                                100
-* class选择器，属性选择器或伪类:              10
-* 元素和伪元素选择器:                         1
-
-当使用复杂选择器给元素添加样式时，最后样式的选择是不同样式对应选择器权重值进行加和比较的结果。
-&lt;font color=&apos;red&apos;&gt;注意：这里的 无穷大+1 &gt; 无穷大 &lt;/font&gt;
-
-下面我们举个小栗子：
-这里我们写一个div:
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"div1 div2 div3 div4 div5 div6 div7 div8 div9 div10"</span> id=<span class="string">'id'</span>&gt;&lt;div&gt;</div></pre></td></tr></table></figure>
-
-    div {
-        height: 100px;
-        width: 100px;
-    }
-
-    #div1{
-        background: blue;
-    }
-
-    .div1.div2.div3.div4.div5.div6.div7.div8.div9.div10.div11{
-        background: yellow;
-    }
-
-这里的div有10个class类名，并且对应的样式代码写在id选择器之后。
-div最后是这样的：
-&lt;img src=&quot;/imgs/div.png&quot; width=&quot;100&quot; height=&quot;100&quot;&gt; 
-按照我们之前理解的权重计算规则10个class选择器并列选择同一个div权重为 10 * 10 = 100,同理id选择器权重值也正好是100，类选择器写在后面权重值相同
-</code></pre>]]></content>
+<a id="more"></a>
+<h3 id="css样式的优先级"><a href="#css样式的优先级" class="headerlink" title="css样式的优先级"></a>css样式的优先级</h3><p>!important &gt; 行间样式 &gt; id选择器 &gt; class选择器 &gt; 标签选择器 &gt; 通配符（*）</p>
+<h3 id="css的权重问题"><a href="#css的权重问题" class="headerlink" title="css的权重问题"></a>css的权重问题</h3><p>当接触到复杂的选择器时我们就不能简单用优先级来进行判断了，这个时候就需要引入各种选择器的权重值来进行计算。</p>
+<ul>
+<li>!important:                           无穷大</li>
+<li>行间样式:                               1000</li>
+<li>id选择器:                                100</li>
+<li>class选择器，属性选择器或伪类:              10</li>
+<li>元素和伪元素选择器:                         1</li>
+</ul>
+<p>当使用复杂选择器给元素添加样式时，最后样式的选择是不同样式对应选择器权重值进行加和比较的结果。<br>    <font color="red">注意：这里的 无穷大+1 &gt; 无穷大 </font></p>
+<p>下面我们举个小栗子：<br>这里我们写一个div:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"div1 div2 div3 div4 div5 div6 div7 div8 div9 div10"</span> id=<span class="string">'id'</span>&gt;&lt;div&gt;</div><div class="line"></div><div class="line">div &#123;</div><div class="line">    height: 100px;</div><div class="line">    width: 100px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#div1&#123;</div><div class="line">    background: blue;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.div1.div2.div3.div4.div5.div6.div7.div8.div9.div10.div11&#123;</div><div class="line">    background: yellow;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里的div有10个class类名，并且对应的样式代码写在id选择器之后。<br>div最后是这样的：<br><img src="/imgs/div.png" width="100" height="100"><br>按照我们之前理解的权重计算规则10个class选择器并列选择同一个div权重为 10 * 10 = 100,同理id选择器权重值也正好是100，类选择器写在后面权重值相同</p>
+]]></content>
       
         <categories>
             
