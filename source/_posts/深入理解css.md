@@ -82,27 +82,3 @@ comments: true
 如果某个元素class（类选择器）的数量大于255个，不同的浏览器的表现不一致，包括但不限于以下浏览器认为class选择器的优先级会超过id选择器（摘自某大佬博客）：
 >Firefox 52.0.2 (64 位)
 >IE 11
-=======
-下面我们举个小栗子：
-这里我们写一个div:
-```javascript
-    <div class="div1 div2 div3 div4 div5 div6 div7 div8 div9 div10" id='id'><div>
-
-    div {
-        height: 100px;
-        width: 100px;
-    }
-
-    #div1{
-        background: blue;
-    }
-
-    .div1.div2.div3.div4.div5.div6.div7.div8.div9.div10.div11{
-        background: yellow;
-    }
-```
-这里的div有10个class类名，并且对应的样式代码写在id选择器之后。
-div最后是这样的：
-<img src="/imgs/div.png" width="100" height="100"> 
-按照我们之前理解的权重计算规则10个class选择器并列选择同一个div权重为 10 * 10 = 100,同理id选择器权重值也正好是100，类选择器写在后面权重值相同
->>>>>>> master
